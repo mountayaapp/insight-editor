@@ -1,0 +1,55 @@
+body {
+	max-width: 100vw;
+	max-height: 100vh;
+	overflow: hidden;
+}
+
+.fullscreen {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	font-family: ff-clan-web-pro, "Helvetica Neue", Helvetica, sans-serif;
+	font-weight: 400;
+	font-size: 0.875em;
+	line-height: 1.71429;
+}
+
+.panel-view-list-toggle-inner {
+	display: none !important;
+}
+
+.map-control-overlay {
+	position: absolute;
+	display: flex;
+	top: 0px;
+	right: 0;
+	z-index: 1;
+
+	pointer-events: none !important;
+	& > * {
+		pointer-events: all;
+	}
+}
+
+.map-control-panel {
+	position: relative;
+}
+
+.panel-sql {
+	width: 100%;
+	height: 5px;
+	cursor: row-resize;
+
+	background-color: #3a414c;
+	&:hover {
+		background-color: #555;
+	}
+}
+
+.schema-panel {
+	overflow: hidden !important;
+}

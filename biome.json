@@ -1,0 +1,27 @@
+{
+	"$schema": "https://biomejs.dev/schemas/2.0.6/schema.json",
+	"formatter": {
+		"lineWidth": 90
+	},
+	"files": {
+		"includes": ["src/**", "tsconfig.json", "vite.config.ts"]
+	},
+	"assist": {
+		"actions": {
+			"source": {
+				"organizeImports": {
+					"level": "on",
+					"options": {
+						"groups": [
+							[":BUN:", ":NODE:"],
+							":BLANK_LINE:",
+							[":PACKAGE:"],
+							":BLANK_LINE:",
+							["./**"]
+						]
+					}
+				}
+			}
+		}
+	}
+}
