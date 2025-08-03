@@ -12,5 +12,7 @@ types:
 
 scopes:
   - "keplergl"
+  - "duckdb"
+  - "charts"
   - "react"
   - "tooling"

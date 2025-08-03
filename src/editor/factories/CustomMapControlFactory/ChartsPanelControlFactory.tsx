@@ -1,12 +1,12 @@
 import { MapControlButton, MapControlTooltipFactory } from "@kepler.gl/components";
-import { Db } from "@kepler.gl/components/dist/common/icons";
+import { Histogram } from "@kepler.gl/components/dist/common/icons";
 import type { MapControls } from "@kepler.gl/types";
 import type React from "react";
 import { useCallback } from "react";
 
-type SqlPanelControlProps = {
+type ChartsPanelControlProps = {
 	mapControls: MapControls & {
-		sqlPanel: {
+		chartsPanel: {
 			show: boolean;
 			active: boolean;
 		};
@@ -14,43 +14,43 @@ type SqlPanelControlProps = {
 	onToggleMapControl: (control: string) => void;
 };
 
-const SqlPanelControlFactory = (
+const ChartsPanelControlFactory = (
 	MapControlTooltip: ReturnType<typeof MapControlTooltipFactory>,
-): React.FC<SqlPanelControlProps> => {
-	const SqlPanelControl = (props: SqlPanelControlProps) => {
+): React.FC<ChartsPanelControlProps> => {
+	const ChartsPanelControl = (props: ChartsPanelControlProps) => {
 		const handleOnClick = useCallback(
 			(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
 				event.preventDefault();
-				props.onToggleMapControl("sqlPanel");
+				props.onToggleMapControl("chartsPanel");
 			},
 			[props.onToggleMapControl],
 		);
 
-		const showControl = props.mapControls.sqlPanel?.show ?? false;
+		const showControl = props.mapControls.chartsPanel?.show ?? false;
 		if (!showControl) {
 			return null;
 		}
 
-		const active = props.mapControls.sqlPanel?.active ?? false;
+		const active = props.mapControls.chartsPanel?.active ?? false;
 		return (
 			<MapControlTooltip
-				id="show-sql-panel"
-				message={active ? "sql.panel.hide" : "sql.panel.show"}
+				id="show-charts-panel"
+				message={active ? "charts.panel.hide" : "charts.panel.show"}
 			>
 				<MapControlButton
-					className="map-control-button toggle-sql-panel"
+					className="map-control-button toggle-charts-panel"
 					onClick={handleOnClick}
 					active={active}
 				>
-					<Db height="18px" />
+					<Histogram height="22px" />
 				</MapControlButton>
 			</MapControlTooltip>
 		);
 	};
 
-	return SqlPanelControl;
+	return ChartsPanelControl;
 };
 
-SqlPanelControlFactory.deps = [MapControlTooltipFactory];
+ChartsPanelControlFactory.deps = [MapControlTooltipFactory];
 
-export default SqlPanelControlFactory;
+export default ChartsPanelControlFactory;

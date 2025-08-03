@@ -55,6 +55,7 @@ export default defineConfig({
 			"@deck.gl/layers",
 			"@deck.gl/mesh-layers",
 			"@kepler.gl/actions",
+			"@kepler.gl/common-utils",
 			"@kepler.gl/components",
 			"@kepler.gl/constants",
 			"@kepler.gl/deckgl-layers",

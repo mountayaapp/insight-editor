@@ -1,3 +1,13 @@
+.theme-dark {
+	--panel-background-color: #3a414c;
+	--panel-background-color-hover: #555;
+}
+
+.theme-light {
+	--panel-background-color: #f7f7f7;
+	--panel-background-color-hover: #2473bd;
+}
+
 body {
 	max-width: 100vw;
 	max-height: 100vh;
@@ -39,9 +49,24 @@ body {
 	position: relative;
 }
 
+.panel-charts {
+	width: 3px;
+	height: 100%;
+	cursor: col-resize;
+
+	background-color: var(--panel-background-color);
+	&:hover {
+		background-color: var(--panel-background-color-hover);
+	}
+
+	+ div {
+		overflow-y: auto !important;
+	}
+}
+
 .panel-sql {
 	width: 100%;
-	height: 5px;
+	height: 3px;
 	cursor: row-resize;
 
 	background-color: #3a414c;
@@ -51,5 +76,16 @@ body {
 }
 
 .schema-panel {
-	overflow: hidden !important;
+	overflow-x: hidden !important;
+
+	& .file-uploader__file-drop {
+		height: calc(100% - 26px) !important;
+	}
+}
+
+.modal--title {
+	font-family: ff-clan-web-pro, "Helvetica Neue", Helvetica, sans-serif;
+	font-weight: 400;
+	font-size: 0.875em;
+	line-height: 1.71429;
 }

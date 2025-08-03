@@ -10,6 +10,7 @@ import {
 } from "@kepler.gl/components";
 import type React from "react";
 
+import ChartsPanelControlFactory from "./ChartsPanelControlFactory";
 import SqlPanelControlFactory from "./SqlPanelControlFactory";
 
 type CustomMapControlProps = MapControlProps & {
@@ -17,6 +18,7 @@ type CustomMapControlProps = MapControlProps & {
 };
 
 const CustomMapControlFactory = (
+	ChartsPanelControl: ReturnType<typeof ChartsPanelControlFactory>,
 	SqlPanelControl: ReturnType<typeof SqlPanelControlFactory>,
 	SplitMapButton: ReturnType<typeof SplitMapButtonFactory>,
 	Toggle3dButton: ReturnType<typeof Toggle3dButtonFactory>,
@@ -35,6 +37,7 @@ const CustomMapControlFactory = (
 	);
 	const actionComponents = [
 		...(MapControl.defaultActionComponents ?? []),
+		ChartsPanelControl,
 		SqlPanelControl,
 	];
 
@@ -51,6 +54,10 @@ const CustomMapControlFactory = (
 	return CustomMapControl;
 };
 
-CustomMapControlFactory.deps = [SqlPanelControlFactory, ...MapControlFactory.deps];
+CustomMapControlFactory.deps = [
+	ChartsPanelControlFactory,
+	SqlPanelControlFactory,
+	...MapControlFactory.deps,
+];
 
 export default CustomMapControlFactory;

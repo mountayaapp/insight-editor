@@ -11,13 +11,19 @@ import type { MapControlItem, MapControls } from "@kepler.gl/types";
 export type CustomKeplerGlState = KeplerGlState & {
 	uiState: KeplerGlState["uiState"] & {
 		mapControls: MapControls & {
+			chartsPanel: MapControlItem;
 			sqlPanel: MapControlItem;
 		};
 	};
 };
 
 export const INITIAL_STATE: CustomKeplerGlState = {
-	mapState: INITIAL_MAP_STATE,
+	mapState: {
+		...INITIAL_MAP_STATE,
+		zoom: 8,
+		longitude: 6.86667,
+		latitude: 45.916672,
+	},
 	mapStyle: {
 		...INITIAL_MAP_STYLE,
 		styleType: process.env.KEPLERGL_THEME === "light" ? "positron" : "dark-matter",
@@ -26,7 +32,11 @@ export const INITIAL_STATE: CustomKeplerGlState = {
 	uiState: {
 		...INITIAL_UI_STATE,
 		mapControls: {
-			mapLegend: {
+			toggle3d: {
+				show: true,
+				active: false,
+			},
+			mapDraw: {
 				show: true,
 				active: false,
 			},
@@ -34,7 +44,11 @@ export const INITIAL_STATE: CustomKeplerGlState = {
 				show: true,
 				active: false,
 			},
-			mapDraw: {
+			mapLegend: {
+				show: true,
+				active: false,
+			},
+			chartsPanel: {
 				show: true,
 				active: false,
 			},
@@ -44,10 +58,6 @@ export const INITIAL_STATE: CustomKeplerGlState = {
 			},
 			visibleLayers: {
 				show: false,
-				active: false,
-			},
-			toggle3d: {
-				show: true,
 				active: false,
 			},
 			effect: {
