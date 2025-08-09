@@ -8,38 +8,30 @@ of our **Mountaya Insight Series**.
 
 ![Mountaya Insight Editor](./assets/recording.gif)
 
-Beyond this open-source editor, Mountaya offers **professional services** to
-our partners to transform their geospatial challenges into clear, actionable
-insights. We provide comprehensive, end-to-end solutions, including:
-
-- **Custom map design:** Tailored map visualizations, meticulously crafted using
-  the Mountaya Insight Editor, to highlight your specific data and objectives with
-  precision.
-- **Dedicated data pipelines:** Robust infrastructure engineered to seamlessly
-  integrate, transform, and process your geospatial data, ensuring efficiency and
-  accuracy.
-- **Bespoke back-end solutions:** Customized systems designed to fully support
-  your unique analytical and mapping requirements, scaling with your needs.
-
-The result of these personalized solutions, known as a **Mountaya Insight**,
-is the map exported by the Insight Editor. This workflow ensures a powerful,
-seamless, and unified experience across all Mountaya Insights, helping you to
-visualize and understand your most complex geospatial challenges with unparalleled
-clarity. You maintain full control over your Mountaya Insights, choosing whether
-they remain exclusively private to your organization or are shared with the wider
-Mountaya community as part of our **Mountaya Insight Series**.
-
 ## Get started
 
-Install dependencies:
-```sh
-$ npm install --legacy-peer-deps
-```
+<details>
+  <summary>Visit online version</summary>
 
-Run the application:
-```sh
-$ npm run dev
-```
+  An online version of the Insight Editor is available for free to anyone at
+  <https://editor.mountaya.com/>.
+</details>
+
+<details>
+  <summary>Running with npm</summary>
+
+  Ensure required environment variables defined in the next section are set.
+
+  Install dependencies:
+  ```sh
+  $ npm install --legacy-peer-deps
+  ```
+
+  Run the application:
+  ```sh
+  $ npm run dev
+  ```
+</details>
 
 ## Environment variables
 
@@ -51,6 +43,31 @@ $ npm run dev
 
 - `KEPLERGL_THEME`: The kepler.gl theme to apply. Must be one of
   `light`, `dark`. Default: `light`.
+
+## Professional services
+
+Beyond this editor, Mountaya offers professional services to our partners to
+transform their geospatial challenges into clear, actionable insights. We provide
+comprehensive, end-to-end solutions, including:
+
+- **Tailored map design:** Data visualizations with the Mountaya Insight Editor,
+  designed to highlight your unique data and objectives with clarity and impact.
+- **Custom ETL/ELT data pipelines:** High-performance, tailored data pipelines
+  that effortlessly integrate, transform, and process your geospatial data.
+- **Powerful Tile APIs:** Scalable Tile APIs designed to perfectly align with
+  your mapping and analytical needs.
+
+The result of these personalized solutions, known as a **Mountaya Insight**,
+is the map exported by the Insight Editor. This workflow ensures a powerful,
+seamless, and unified experience across all Mountaya Insights, helping you to
+visualize and understand your most complex geospatial challenges with unparalleled
+clarity. You maintain full control over your Mountaya Insights, choosing whether
+they remain exclusively private to your organization or are shared with the wider
+Mountaya community as part of our **Mountaya Insight Series**.
+
+Ready to get started with Mountaya Insight Editor and Insight Series? [Complete
+our access request form](https://form.typeform.com/to/M23XWGhE) and we'll get back
+you.
 
 ## License
 
