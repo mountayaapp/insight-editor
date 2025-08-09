@@ -43,10 +43,14 @@ $ npm run dev
 
 ## Environment variables
 
-- `KEPLERGL_THEME` (optional): The kepler.gl theme to apply. Must be one of
+### Required
+
+- `MAPTILER_API_KEY`: The MapTiler API key for using MapTiler's map styles.
+
+### Optional
+
+- `KEPLERGL_THEME`: The kepler.gl theme to apply. Must be one of
   `light`, `dark`. Default: `light`.
-- `MAPBOX_API_TOKEN` (optional): The Mapbox API token in case you need to use
-  Mapbox map styles or rely on Mapbox in any other way.
 
 ## License
 

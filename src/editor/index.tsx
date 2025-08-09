@@ -91,7 +91,6 @@ export const Editor = () => {
 													theme={
 														process.env.KEPLERGL_THEME === "light" ? "light" : undefined
 													}
-													mapboxApiAccessToken={process.env.MAPBOX_API_TOKEN}
 													localeMessages={MESSAGES}
 													appWebsite="https://mountaya.com"
 													appName="Insight Editor"

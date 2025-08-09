@@ -26,7 +26,37 @@ export const INITIAL_STATE: CustomKeplerGlState = {
 	},
 	mapStyle: {
 		...INITIAL_MAP_STYLE,
-		styleType: process.env.KEPLERGL_THEME === "light" ? "positron" : "dark-matter",
+		styleType: "visualization",
+		mapStyles: {
+			visualization: {
+				id: "visualization",
+				label: "Visualization",
+				icon: "https://cloud.maptiler.com/static/img/maps/dataviz.png",
+				url: `https://api.maptiler.com/maps/dataviz/style.json?key=${process.env.MAPTILER_API_KEY}`,
+				layerGroups: [],
+			},
+			satellite: {
+				id: "satellite",
+				label: "Satellite",
+				icon: "https://cloud.maptiler.com/static/img/maps/satellite.png",
+				url: `https://api.maptiler.com/maps/satellite/style.json?key=${process.env.MAPTILER_API_KEY}`,
+				layerGroups: [],
+			},
+			topo: {
+				id: "topo",
+				label: "General topo",
+				icon: "https://cloud.maptiler.com/static/img/maps/topo.png",
+				url: `https://api.maptiler.com/maps/topo-v2/style.json?key=${process.env.MAPTILER_API_KEY}`,
+				layerGroups: [],
+			},
+			winter: {
+				id: "winter",
+				label: "Winter topo",
+				icon: "https://cloud.maptiler.com/static/img/maps/winter.png",
+				url: `https://api.maptiler.com/maps/winter-v2/style.json?key=${process.env.MAPTILER_API_KEY}`,
+				layerGroups: [],
+			},
+		},
 	},
 	providerState: INITIAL_PROVIDER_STATE,
 	uiState: {
