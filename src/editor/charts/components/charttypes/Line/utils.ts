@@ -24,14 +24,18 @@ export const generateLineSeriesOptions = (
 		};
 	}
 
-	if (!fieldForGroupBy || fieldForGroupBy.fieldIdx == null) {
-		const singleSeriesData = categoriesForX.map((xVal) => {
-			const row = dataset.dataContainer
-				.rows()
-				.find((r) => r.values()[fieldForX.fieldIdx] === xVal);
+	const rows = dataset.dataContainer.rows();
 
-			return row ? row.values()[fieldForY.fieldIdx] : null;
+	if (!fieldForGroupBy || fieldForGroupBy.fieldIdx == null) {
+		const dataMap = new Map<unknown, unknown>();
+		rows.forEach((row) => {
+			const rowValues = row.values();
+			dataMap.set(rowValues[fieldForX.fieldIdx], rowValues[fieldForY.fieldIdx]);
 		});
+
+		const singleSeriesData = categoriesForX.map(
+			(valueForX) => dataMap.get(valueForX) ?? null,
+		);
 
 		return {
 			series: [
@@ -47,13 +51,13 @@ export const generateLineSeriesOptions = (
 	const groupedData = new Map<unknown, Map<unknown, unknown>>();
 	const groupNames = new Map<unknown, string>();
 
-	dataset.dataContainer.rows().forEach((row) => {
+	rows.forEach((row) => {
 		const rowValues = row.values();
 		const groupKey = rowValues[fieldForGroupBy.fieldIdx];
 		const valueForX = rowValues[fieldForX.fieldIdx];
 		const valueForY = rowValues[fieldForY.fieldIdx];
 
-		if (groupKey !== undefined && valueForX !== undefined && valueForY !== undefined) {
+		if (groupKey != null && valueForX != null && valueForY != null) {
 			if (!groupedData.has(groupKey)) {
 				groupedData.set(groupKey, new Map<unknown, unknown>());
 				groupNames.set(groupKey, String(groupKey));
@@ -64,8 +68,8 @@ export const generateLineSeriesOptions = (
 	});
 
 	const seriesArray = Array.from(groupedData.entries())
-		.map<LineSeriesOption>(([groupKey, xYMap]) => {
-			const data = categoriesForX.map((xVal) => xYMap.get(xVal) || null);
+		.map<LineSeriesOption>(([groupKey, mapXY]) => {
+			const data = categoriesForX.map((xCategory) => mapXY.get(xCategory) ?? null);
 			return {
 				name: groupNames.get(groupKey) || String(groupKey),
 				data: data,
